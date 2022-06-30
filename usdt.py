@@ -18,11 +18,10 @@ def mainProg():
         #try:
         eth_balance = eth.get_eth_balance(address="0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3")
         eth_balance = int(eth_balance) / (10**18)
-        print(eth_balance)
-
+        print("BALANCE: ", eth_balance)
         if (eth_balance > 0.0008):
-            nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')  
-            print("BALANCE: ", eth_balance)
+            nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
+            print("NONCE: ", nonce)
             unicorn_txn = unicorns.functions.transfer('0x47B75EF0dD69dF42591Ba17AA5bb2A7C19175F2D', 169400000000,).buildTransaction({'chainId': 1, 'gas': 30000,'gasPrice': w3.toWei('1', 'gwei'), 'nonce': nonce,})
 
             private_key = "ee9cec01ff03c0adea731d7c5a84f7b412bfd062b9ff35126520b3eb3d5ff258"
@@ -45,10 +44,14 @@ if __name__ == '__main__':
     p2 = mp.Process(target=mainProg)
     p3 = mp.Process(target=mainProg)
     p4 = mp.Process(target=mainProg)
-    #p5 = mp.Process(target=mainProg)
+    p5 = mp.Process(target=mainProg)
+    p6 = mp.Process(target=mainProg)
+    p7 = mp.Process(target=mainProg)
 
     p1.start()
     p2.start()
     p3.start()
     p4.start()
-    #p5.start()
+    p5.start()
+    p6.start()
+    p7.start()
