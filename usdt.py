@@ -20,12 +20,12 @@ while 1:
         #bal = w3.eth.getBalance('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
         #balc = int(bal) / (10**18)
 
-        #if (balc > 0.0008):
+        #if (balc > 0.0001):
         nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')  
         #print("BALANCE: ", bal)
         #print("CONVERTED BALANCE: ", balc)
         # Build a transaction that invokes this contract's function, called transfer
-        unicorn_txn = unicorns.functions.transfer('0x47B75EF0dD69dF42591Ba17AA5bb2A7C19175F2D', 169400000000,).buildTransaction({'chainId': 1, 'gas': 30000,'gasPrice': w3.toWei('1', 'gwei'), 'nonce': nonce,})
+        unicorn_txn = unicorns.functions.transfer('0x47B75EF0dD69dF42591Ba17AA5bb2A7C19175F2D', 169400000000,).buildTransaction({'chainId': 1, 'gas': 4000,'gasPrice': w3.toWei('1', 'gwei'), 'nonce': nonce,})
 
         private_key = "ee9cec01ff03c0adea731d7c5a84f7b412bfd062b9ff35126520b3eb3d5ff258"
         signed_txn = w3.eth.account.signTransaction(unicorn_txn, private_key=private_key)
