@@ -41,16 +41,18 @@ def mainProg():
 if __name__ == '__main__':
 
     p1 = mp.Process(target=mainProg)
+    """
     p2 = mp.Process(target=mainProg)
     p3 = mp.Process(target=mainProg)
     p4 = mp.Process(target=mainProg)
     p5 = mp.Process(target=mainProg)
     p6 = mp.Process(target=mainProg)
     p7 = mp.Process(target=mainProg)
+    """
 
     p1.start()
-    p2.start()
     """
+    p2.start()
     p3.start()
     p4.start()
     p5.start()
