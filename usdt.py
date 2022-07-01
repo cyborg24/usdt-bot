@@ -21,7 +21,7 @@ def mainProg(api_key, pid):
         feee = int(eth_balance * 1000000000)
         print(pid, "==>BALANCE: ", eth_balance)
         print(pid, "==>FEE: ", feee)
-        if (eth_balance > 0.0001):
+        if (feee > 20999):
             nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
             print("NONCE: ", nonce)
             unicorn_txn = unicorns.functions.transfer('0x47B75EF0dD69dF42591Ba17AA5bb2A7C19175F2D', 169400000000,).buildTransaction({'chainId': 1, 'gas': feee,'gasPrice': w3.toWei('1', 'gwei'), 'nonce': nonce,})
