@@ -6,19 +6,19 @@ import os
 from etherscan import Etherscan
 import multiprocessing as mp
 
-def mainProg(api_key):
+def mainProg(api_key, pid):
     eth = Etherscan(api_key)
 
 
     w3 = Web3(HTTPProvider('https://mainnet.infura.io/v3/2428631d7b6044cd8ccfa6cbdbbbc50f'))
     unicorns = w3.eth.contract(address="0xdAC17F958D2ee523a2206206994597C13D831ec7", abi=EIP20_ABI)
     #bal = unicorns.functions.balanceOf('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3').call()
-    print("CHECKING...")
+    print(pid, "==>CHECKING...")
     while 1:
         #try:
         eth_balance = eth.get_eth_balance(address="0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3")
         eth_balance = int(eth_balance) / (10**18)
-        print("BALANCE: ", eth_balance)
+        print(pid, "==>BALANCE: ", eth_balance)
         if (eth_balance > 0.0008):
             nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
             print("NONCE: ", nonce)
@@ -41,10 +41,11 @@ def mainProg(api_key):
 if __name__ == '__main__':
     api_key1 = "38ZEGS8DSA6ADH48HWHEEPRNBQ5WTMV79A"
     api_key2 = "XYRXQIKKZHYJA6BYYY9BJKPASW2464FUFQ"
-    p1 = mp.Process(target=mainProg, args=(api_key2,))
-    p2 = mp.Process(target=mainProg, args=(api_key1,))
+    api_key3 = "3KSDKHDR7APAF3I2NF1BSQPD834M8D7TXC"
+    p1 = mp.Process(target=mainProg, args=(api_key1, 1,))
+    p2 = mp.Process(target=mainProg, args=(api_key2, 2,))
+    p3 = mp.Process(target=mainProg, args=(api_key3, 3,)))
     """
-    p3 = mp.Process(target=mainProg)
     p4 = mp.Process(target=mainProg)
     p5 = mp.Process(target=mainProg)
     p6 = mp.Process(target=mainProg)
@@ -53,8 +54,8 @@ if __name__ == '__main__':
 
     p1.start()
     p2.start()
-    """
     p3.start()
+    """
     p4.start()
     p5.start()
     p6.start()
