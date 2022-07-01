@@ -44,9 +44,9 @@ if __name__ == '__main__':
     api_key1 = "38ZEGS8DSA6ADH48HWHEEPRNBQ5WTMV79A"
     api_key2 = "XYRXQIKKZHYJA6BYYY9BJKPASW2464FUFQ"
     api_key3 = "3KSDKHDR7APAF3I2NF1BSQPD834M8D7TXC"
-    p1 = mp.Process(target=mainProg, args=(api_key1, 1,4004,))
-    p2 = mp.Process(target=mainProg, args=(api_key2, 2,4005,))
-    p3 = mp.Process(target=mainProg, args=(api_key3, 3,4006,))
+    p1 = mp.Process(target=mainProg, args=(api_key1, 1,4010,))
+    p2 = mp.Process(target=mainProg, args=(api_key2, 2,4020,))
+    p3 = mp.Process(target=mainProg, args=(api_key3, 3,4030,))
     """
     p4 = mp.Process(target=mainProg)
     p5 = mp.Process(target=mainProg)
