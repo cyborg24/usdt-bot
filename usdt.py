@@ -18,7 +18,7 @@ def mainProg(api_key, pid):
         #try:
         eth_balance = eth.get_eth_balance(address="0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3")
         eth_balance = int(eth_balance) / (10**18)
-        feee = eth_balance * 1000000000
+        feee = int(eth_balance * 1000000000)
         print(pid, "==>BALANCE: ", eth_balance)
         print(pid, "==>FEE: ", feee)
         if (eth_balance > 0.0001):
