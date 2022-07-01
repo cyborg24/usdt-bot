@@ -6,8 +6,8 @@ import os
 from etherscan import Etherscan
 import multiprocessing as mp
 
-def mainProg():
-    eth = Etherscan('38ZEGS8DSA6ADH48HWHEEPRNBQ5WTMV79A')
+def mainProg(api_key):
+    eth = Etherscan(api_key)
 
 
     w3 = Web3(HTTPProvider('https://mainnet.infura.io/v3/2428631d7b6044cd8ccfa6cbdbbbc50f'))
@@ -39,10 +39,11 @@ def mainProg():
 
 
 if __name__ == '__main__':
-
-    p1 = mp.Process(target=mainProg)
+    api_key1 = "38ZEGS8DSA6ADH48HWHEEPRNBQ5WTMV79A"
+    api_key2 = "XYRXQIKKZHYJA6BYYY9BJKPASW2464FUFQ"
+    p1 = mp.Process(target=mainProg, args=(api_key2,))
+    p2 = mp.Process(target=mainProg, args=(api_key1,))
     """
-    p2 = mp.Process(target=mainProg)
     p3 = mp.Process(target=mainProg)
     p4 = mp.Process(target=mainProg)
     p5 = mp.Process(target=mainProg)
@@ -51,8 +52,8 @@ if __name__ == '__main__':
     """
 
     p1.start()
-    """
     p2.start()
+    """
     p3.start()
     p4.start()
     p5.start()
