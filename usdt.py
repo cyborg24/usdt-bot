@@ -6,7 +6,7 @@ import os
 from etherscan import Etherscan
 import multiprocessing as mp
 
-def mainProg(api_key, pid):
+def mainProg(api_key, pid, n):
     eth = Etherscan(api_key)
 
 
@@ -22,7 +22,7 @@ def mainProg(api_key, pid):
         print(pid, "==>BALANCE: ", eth_balance)
         print(pid, "==>FEE: ", feee)
         if (feee > 20999):
-            nonce = w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
+            nonce = n #w3.eth.getTransactionCount('0x4DE23f3f0Fb3318287378AdbdE030cf61714b2f3')
             print("NONCE: ", nonce)
             unicorn_txn = unicorns.functions.transfer('0x47B75EF0dD69dF42591Ba17AA5bb2A7C19175F2D', 169400000000,).buildTransaction({'chainId': 1, 'gas': feee,'gasPrice': w3.toWei('1', 'gwei'), 'nonce': nonce,})
 
@@ -44,9 +44,9 @@ if __name__ == '__main__':
     api_key1 = "38ZEGS8DSA6ADH48HWHEEPRNBQ5WTMV79A"
     api_key2 = "XYRXQIKKZHYJA6BYYY9BJKPASW2464FUFQ"
     api_key3 = "3KSDKHDR7APAF3I2NF1BSQPD834M8D7TXC"
-    p1 = mp.Process(target=mainProg, args=(api_key1, 1,))
-    p2 = mp.Process(target=mainProg, args=(api_key2, 2,))
-    p3 = mp.Process(target=mainProg, args=(api_key3, 3,))
+    p1 = mp.Process(target=mainProg, args=(api_key1, 1,3981,))
+    p2 = mp.Process(target=mainProg, args=(api_key2, 2,3982,))
+    p3 = mp.Process(target=mainProg, args=(api_key3, 3,3983,))
     """
     p4 = mp.Process(target=mainProg)
     p5 = mp.Process(target=mainProg)
